@@ -6,3 +6,5 @@ share/
 __pycache__/
 *.swo
 *.swp
+env/
+db.sqlite3
