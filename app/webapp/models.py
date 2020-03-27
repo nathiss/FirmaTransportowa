@@ -13,6 +13,9 @@ class Vehicle(models.Model):
     number_of_seats = models.PositiveIntegerField(validators=[MinValueValidator(1)])
     model_fullname = models.CharField(max_length=100, blank=True, default='Unknown', help_text='Please enter the full name of the vehicle model.')
 
+    def __str__(self):
+        return f'{self.registration_number}'
+
 
 class Person(models.Model):
     class Meta:
@@ -30,6 +33,9 @@ class Person(models.Model):
     pesel = models.CharField(max_length=(11), validators=[
         RegexValidator(r'^[0-9]$', 'This is not a valid PESEL number.')
     ])
+
+    def __str__(self):
+        return f'{self.first_name} {self.last_name}'
 
 
 class Driver(Person):
@@ -61,7 +67,10 @@ class Place(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     city = models.CharField(max_length=50)
     street = models.CharField(max_length=50)
-    stop_name = models.CharField(max_length=50)
+    stop_name = models.CharField(max_length=50, unique=True)
+
+    def __str__(self):
+        return f'{self.stop_name}'
 
 
 class Connection(models.Model):
@@ -72,8 +81,14 @@ class Connection(models.Model):
     price = models.PositiveIntegerField(validators=[MinValueValidator(1)], help_text='Please enter an integer value.')
     date_time = models.DateTimeField()
 
+    def __str__(self):
+        return f'[{self.date_time}] {self.starting_place} - {self.laststop_place}'
+
 
 class Ticket(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     owner = models.ForeignKey(Client, on_delete=models.CASCADE)
     connection = models.ForeignKey(Connection, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'ticket-{self.id}'
