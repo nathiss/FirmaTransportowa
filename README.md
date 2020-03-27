@@ -11,6 +11,6 @@
 ```sh
  $ cd app
  $ ./manage.py makemigrations  # only once after cloning the repo
- $ ./manage.py migrate         # only one before the first run
+ $ ./manage.py migrate         # only once before the first run
  $ ./manage.py runserver 0.0.0.0:8080
 ```
