@@ -1,11 +1,20 @@
 import uuid
 
 from django.db import models
+from django.core.validators import MinValueValidator
+
+
+class Vehicle(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    registration_number = models.CharField(max_length=20)
+    number_of_seats = models.IntegerField(validators=[MinValueValidator(1)])
+
 
 class Person(models.Model):
     class Meta:
         abstract = True
-        plural_name = 'People'
+        verbose_name = 'Person'
+        verbose_name_plural = 'People'
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     first_name = models.CharField(max_length=50)
@@ -20,12 +29,6 @@ class Client(Person):
     email = models.EmailField()
 
 
-class Vehicle(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    registration_number = models.CharField(max_length=20)
-    number_of_seats = models.IntegerField(validators=[MinValueValidator(1)])
-
-
 class Place(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     city = models.CharField(max_length=50)
@@ -35,8 +38,8 @@ class Place(models.Model):
 
 class Connection(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    starting_place = models.ForeignKey(Place, on_delete=models.CASCADE)
-    laststop_place = models.ForeignKey(Place, on_delete=models.CASCADE)
+    starting_place = models.ForeignKey(Place, related_name='FirstStop', on_delete=models.CASCADE)
+    laststop_place = models.ForeignKey(Place, related_name='LastStop', on_delete=models.CASCADE)
     price = models.IntegerField(validators=[MinValueValidator(0)])
     date_time = models.DateTimeField()
 
