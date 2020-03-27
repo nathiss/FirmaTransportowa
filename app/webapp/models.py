@@ -33,11 +33,17 @@ class Person(models.Model):
 
 
 class Driver(Person):
+    class Meta:
+        verbose_name = 'Driver'
+        verbose_name_plural = 'Drivers'
     vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
 
 # https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#onetoone
 class Client(Person):
+    class Meta:
+        verbose_name = 'Client'
+        verbose_name_plural = 'Clients'
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 @receiver(post_save, sender=User)
