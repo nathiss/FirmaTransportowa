@@ -17,3 +17,7 @@ indent_size = 2
 
 [{.gitignore, README.md}]
 insert_final_newline = false
+
+
+[{requirements.txt, requirements-dev.txt,}]
+insert_final_newline = true
