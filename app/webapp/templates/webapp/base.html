@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta charset="utf-8" />
+    {% block meta %}{% endblock %}
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700&display=swap&subset=latin-ext" rel="stylesheet" />
+    {% block fonts %}{% endblock %}
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'webapp/css/main.css' %}" />
+    {% block css %}{% endblock %}
+
+    <!-- JavaScript -->
+    {% block js %}{% endblock %}
+
+    <title>{% block title %}Firma transportowa{% endblock %}</title>
+  </head>
+  <body>
+    {% block body %}{% endblock %}
+  </body>
+</html>
