@@ -2,6 +2,10 @@ html, body {
     font-family: 'Lato', sans-serif;
 }
 
+.brand-img {
+    margin-right: 10px;
+}
+
 body > footer {
     background-color: #333;
     color: #eee;
