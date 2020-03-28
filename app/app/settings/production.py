@@ -10,7 +10,7 @@ from .common import *
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
+DEBUG = os.environ.get('DJANGO_DEBUG', 'False').lower() == 'True'.lower()
 
 ALLOWED_HOSTS = ['firma-transportowa.herokuapp.com']
 
