@@ -1,5 +1,17 @@
 {
     "python.pythonPath": "env/bin/python",
     "python.linting.pylintEnabled": true,
-    "python.linting.enabled": true
+    "python.linting.enabled": true,
+    "files.exclude": {
+        "**/bin/": true,
+        "**/include/": true,
+        "**/lib/": true,
+        "**/share/": true,
+        "**/*.pyc": true,
+        "**/__pycache__/": true,
+        "**/*.swo": true,
+        "**/*.swp": true,
+        "**/env/": true,
+        "**/db.sqlite3": true
+    }
 }
