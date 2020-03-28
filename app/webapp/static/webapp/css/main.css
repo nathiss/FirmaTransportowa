@@ -9,12 +9,22 @@ body > footer {
     text-align: center;
 }
 
-body > footer em {
+body > footer .info-section {
+    padding: 1em 0;
+}
+
+body > footer .info-section .socialmedia,
+body > footer .info-section .contact,
+body > footer .info-section .contributions {
+    text-align: center;
+}
+
+body > footer .copyright em {
     font-weight: bold;
     font-style: normal;
 }
 
-body > footer p {
+body > footer .copyright p {
     margin: 0;
 }
 

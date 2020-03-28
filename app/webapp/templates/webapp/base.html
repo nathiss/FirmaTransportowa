@@ -7,6 +7,15 @@
     <meta charset="utf-8" />
     {% block meta %}{% endblock %}
 
+    <!-- For IE 9 and below. ICO should be 32x32 pixels in size -->
+    <!--[if IE]><link rel="shortcut icon" href="{% static 'webapp/favicon/favicon-32x32.ico' %}"><![endif]-->
+
+    <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. -->
+    <link rel="apple-touch-icon-precomposed" href="{% static 'webapp/favicon/favicon-180x180.png' %}">
+
+    <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 196x196 pixels in size. -->
+    <link rel="icon" href="{% static 'webapp/favicon/favicon-196x196.png' %}">
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700&display=swap&subset=latin-ext" rel="stylesheet" />
     {% block fonts %}{% endblock %}
@@ -29,17 +38,6 @@
 
     {% block body %}{% endblock %}
 
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <p>
-              <em>Firma Transportowa</em>
-              Wszystkie prawa zastrzeżone &copy; 2020
-            </p>
-          </div>
-        </div>
-      <div>
-    </footer>
+    {% include 'webapp/elements/footer.html' %}
   </body>
 </html>
