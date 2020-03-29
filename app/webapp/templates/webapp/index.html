@@ -2,24 +2,26 @@
 
 {% block body %}
 
-<div class="jumbotron">
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <h1 class="display-4">Witaj na naszej stronie!</h1>
-        <p class="lead">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin luctus varius mi vel mattis.
-          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi commodo ipsum congue sem aliquam dictum.
-        </p>
-        <hr class="my-4">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin luctus varius mi vel mattis.
-        </p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Zaloguj się</a>
+{% if not request.user.is_authenticated %}
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1 class="display-4">Witaj na naszej stronie!</h1>
+          <p class="lead">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin luctus varius mi vel mattis.
+            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi commodo ipsum congue sem aliquam dictum.
+          </p>
+          <hr class="my-4">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin luctus varius mi vel mattis.
+          </p>
+          <a class="btn btn-primary btn-lg" href="{% url 'webapp:login' %}" role="button">Zaloguj się</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
+{% endif %}
 
 <div class="container post-wrapper">
   <h1>Aktualności</h1>
