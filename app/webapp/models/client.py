@@ -16,7 +16,6 @@ class Client(Person):
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, *args, **kwargs):
     if created:
-        # pylint: disable=no-member
         Client.objects.create(user=instance)
 
 @receiver(post_save, sender=User)

@@ -3,7 +3,7 @@ import os
 # pylint: disable=import-error
 import dj_database_url
 
-# pylint: disable=unused-wildcard-import
+# pylint: disable=unused-wildcard-import,wildcard-import
 from .common import *
 
 # SECURITY WARNING: keep the secret key used in production secret!
