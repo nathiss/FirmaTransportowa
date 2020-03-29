@@ -32,23 +32,23 @@ body > footer .copyright p {
     margin: 0;
 }
 
-.article-wrapper {
+.post-wrapper {
     margin-bottom: 4em;
 }
 
-.article-wrapper > .article {
+.post-wrapper > .post {
     margin-top: 2em;
     margin-bottom: 3em;
 }
 
-.article-wrapper > .article h2 {
+.post-wrapper > .post h2 {
     font-size: 1.7em;
 }
 
-.article-wrapper > .article > main {
+.post-wrapper > .post > main {
     text-align: justify;
 }
 
-.article-wrapper > .article:last-child {
+.post-wrapper > .post:last-child {
     margin-bottom: 0;
 }

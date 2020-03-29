@@ -1,0 +1,11 @@
+<article class="post">
+  <header class="d-flex flex-row justify-content-between align-items-center">
+    <h2>{{ post.title }}</h2>
+    <time>{{ post.datetime }}</time>
+  </header>
+  <main>
+    <p>
+      {{ post.content|safe }}
+    </p>
+  </main>
+</article>

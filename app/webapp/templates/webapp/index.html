@@ -21,11 +21,13 @@
   </div>
 </div>
 
-<div class="container article-wrapper">
+<div class="container post-wrapper">
   <h1>Aktualności</h1>
   <hr />
-  {% for i in '0123'|make_list %}
-    {% include 'webapp/elements/article.html' %}
+  {% for post in posts %}
+    {% include 'webapp/elements/post.html' %}
+  {% empty %}
+    no
   {% endfor %}
 </div>
 
