@@ -14,7 +14,7 @@ class Command(BaseCommand):
         p.datetime = datetime.datetime(2004, 4, 27, 13, 45)
         p.content = """
         Witaj na naszej stronie! Jesteśmy firmą transportową, która zajmuje się transportem ludzi. <br />
-        Cieszymy się, że chcesz korzystać z naszych usłów. Zobacz zakładkę <b>O nasz</b> aby dowiedzieć się więcej.
+        Cieszymy się, że chcesz korzystać z naszych usłów. Zobacz zakładkę <b>O nas</b> aby dowiedzieć się więcej.
         """
         p.save()
         self.stdout.write(self.style.SUCCESS('Successfuly added entries to Post table.'))
