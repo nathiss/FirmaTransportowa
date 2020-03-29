@@ -20,7 +20,11 @@ class LoginView(View):
             user = authenticate(username=username, password=password)
             if not remember_me:
                 request.session.set_expiry(0)
-            if user is None:
-                form.add_error(field=None, error='Nieprawidłowy login i/lub hasło.')
-                return render(request, 'webapp/login.html', {"form": form})
-            return redirect('webapp:index')
+            if user is not None:
+                return redirect('webapp:index')
+
+            form.add_error(field=None, error='Nieprawidłowy login i/lub hasło.')
+            return render(request, 'webapp/login.html', {"form": form})
+
+        form.add_error(field=None, error='Formularz jest nieprawidłowy.')
+        return render(request, 'webapp/login.html', {"form": form})
