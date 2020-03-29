@@ -7,12 +7,11 @@ class Command(BaseCommand):
     help = 'Populates the databse with example data.'
 
     def __clear_posts(self):
-        # pylint: disable=no-member
-        all = Post.objects.all()
+        posts = Post.objects.all()
         if len(all) == 0:
             self.stderr.write(self.style.WARNING('Post table has no entries.'))
         else:
-            all.delete()
+            posts.delete()
             self.stdout.write(self.style.SUCCESS('Deleted all entries in Post table.'))
 
     @no_translations

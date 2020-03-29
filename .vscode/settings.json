@@ -2,6 +2,10 @@
     "python.pythonPath": "env/bin/python",
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
+    "python.linting.pylintArgs": [
+        "--load-plugins", "pylint_django",
+        "--disable=missing-class-docstring,missing-function-docstring,missing-module-docstring,unused-argument",
+    ],
     "files.exclude": {
         "**/bin/": true,
         "**/include/": true,

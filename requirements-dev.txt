@@ -11,3 +11,5 @@ sqlparse==0.3.1
 typed-ast==1.4.1
 wrapt==1.11.2
 whitenoise==5.0.1
+pylint-django==2.0.14
+pylint-plugin-utils==0.6
