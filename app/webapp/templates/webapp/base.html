@@ -38,6 +38,10 @@
 
     {% block body %}{% endblock %}
 
+    <div class="alert-box">
+      {% block alert_box %}{% endblock %}
+    </div>
+
     {% include 'webapp/elements/footer.html' %}
   </body>
 </html>
