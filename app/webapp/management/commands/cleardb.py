@@ -8,7 +8,7 @@ class Command(BaseCommand):
 
     def __clear_posts(self):
         posts = Post.objects.all()
-        if len(all) == 0:
+        if len(posts) == 0:
             self.stderr.write(self.style.WARNING('Post table has no entries.'))
         else:
             posts.delete()
