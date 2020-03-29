@@ -9,14 +9,14 @@ class Command(BaseCommand):
     help = 'Populates the databse with example data.'
 
     def __populate_posts(self):
-        p = Post()
-        p.title = 'Witaj na naszej stronie!'
-        p.datetime = datetime.datetime(2004, 4, 27, 13, 45)
-        p.content = """
+        post = Post()
+        post.title = 'Witaj na naszej stronie!'
+        post.datetime = datetime.datetime(2004, 4, 27, 13, 45)
+        post.content = """
         Witaj na naszej stronie! Jesteśmy firmą transportową, która zajmuje się transportem ludzi. <br />
         Cieszymy się, że chcesz korzystać z naszych usłów. Zobacz zakładkę <b>O nas</b> aby dowiedzieć się więcej.
         """
-        p.save()
+        post.save()
         self.stdout.write(self.style.SUCCESS('Successfuly added entries to Post table.'))
 
     @no_translations
