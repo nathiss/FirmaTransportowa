@@ -3,6 +3,7 @@ from django.db import models
 from .person import Person
 from .vehicle import Vehicle
 
+
 class Driver(Person):
     class Meta:
         verbose_name = 'Driver'

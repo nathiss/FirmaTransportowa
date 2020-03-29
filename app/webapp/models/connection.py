@@ -5,6 +5,7 @@ from django.core.validators import MinValueValidator
 
 from .place import Place
 
+
 class Connection(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     starting_place = models.ForeignKey(Place, related_name='FirstStop', on_delete=models.CASCADE)

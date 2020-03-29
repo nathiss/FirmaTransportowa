@@ -5,6 +5,7 @@ from django.db.models.signals import post_save
 
 from .person import Person
 
+
 # https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#onetoone
 class Client(Person):
     class Meta:
