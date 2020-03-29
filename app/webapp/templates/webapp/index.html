@@ -27,7 +27,10 @@
   {% for post in posts %}
     {% include 'webapp/elements/post.html' %}
   {% empty %}
-    no
+    <div class="no-posts-warning">
+      <p>Tabela aktualności w bazie danych jest pusta. Możesz ją zapełnić poprzez:</p>
+      <p><code>$ ./manage.py populatedb</code></p>
+    </div>
   {% endfor %}
 </div>
 

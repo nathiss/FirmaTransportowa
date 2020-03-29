@@ -52,3 +52,21 @@ body > footer .copyright p {
 .post-wrapper > .post:last-child {
     margin-bottom: 0;
 }
+
+.no-posts-warning {
+    background-color: #fafafa;
+    color: #aaa;
+    text-align: center;
+    font-style: italic;
+    padding: 3em 5em;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+}
+
+.no-posts-warning  p {
+    margin: 0;
+}
+
+.no-posts-warning code {
+    font-style: normal;
+}
