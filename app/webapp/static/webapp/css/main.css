@@ -73,7 +73,7 @@ body > footer .copyright p {
 }
 
 .alert-box {
-    position: absolute;
+    position: fixed;
     left: 1em;
     bottom: 1em;
     width: 33.33333%;
