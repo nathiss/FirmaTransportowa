@@ -1,3 +1,11 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Client, Connection, Driver, Place, Post, Ticket, Vehicle
+
+admin.site.register(Client)
+admin.site.register(Connection)
+admin.site.register(Driver)
+admin.site.register(Place)
+admin.site.register(Post)
+admin.site.register(Ticket)
+admin.site.register(Vehicle)
