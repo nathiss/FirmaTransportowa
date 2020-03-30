@@ -14,3 +14,8 @@
  $ ./manage.py migrate         # only once before the first run
  $ ./manage.py runserver 0.0.0.0:8080
 ```
+
+## Create a superuser account
+```sh
+ $ ./manage.py createsuperuser  # an interactive method
+```
