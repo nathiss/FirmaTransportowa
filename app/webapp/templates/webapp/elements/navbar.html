@@ -32,7 +32,7 @@
         </li>
       {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="#">Wyloguj się</a>
+          <a class="nav-link" href="{% url 'webapp:logout' %}">Wyloguj się</a>
         </li>
       {% endif %}
     </ul>
