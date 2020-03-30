@@ -1,0 +1,54 @@
+{% extends 'webapp/base.html' %}
+{% load add_class %}
+
+{% block alert_box %}
+
+  {{ block.super }}
+  {% for error in form.non_field_errors %}
+    {% include 'webapp/elements/alerts/error.html' with message=error only %}
+  {% endfor %}
+
+{% endblock %}
+
+{% block body %}
+
+<div class="container h-100">
+  <div class="row h-100 d-flex align-items-center">
+    <div class="col-md-12 col-lg-6 offset-lg-3">
+      <h1 class="text-center">Formularz rejestracji</h1>
+
+      <form action="#" method="POST">
+        {% csrf_token %}
+
+        <div class="form-group">
+          <label for="{{ form.login.id_for_label }}">{{ form.login.label }}</label>
+          {% for error in form.login.errors %}
+            {% include 'webapp/elements/alerts/error.html' with message=error only %}
+          {% endfor %}
+          {{ form.login|add_class:"form-control" }}
+        </div>
+
+        <div class="form-group">
+          <label for="{{ form.passwd.id_for_label }}">{{ form.passwd.label }}</label>
+          {% for error in form.passwd.errors %}
+            {% include 'webapp/elements/alerts/error.html' with message=error only %}
+          {% endfor %}
+          {{ form.passwd|add_class:"form-control" }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.passwd.id_for_label }}">{{ form.repeatPasswd.label }}</label>
+            {% for error in form.passwd.errors %}
+              {% include 'webapp/elements/alerts/error.html' with message=error only %}
+            {% endfor %}
+            {{ form.repeatPasswd|add_class:"form-control" }}
+          </div>
+
+        <button type="submit" class="btn btn-primary">Zarejestruj się</button>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
