@@ -1,6 +1,6 @@
 from django.views import View
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
 
 from ..forms import LoginForm
 
@@ -18,9 +18,10 @@ class LoginView(View):
             password = form.cleaned_data['passwd']
             remember_me = form.cleaned_data['remember_me']
             user = authenticate(username=username, password=password)
-            if not remember_me:
-                request.session.set_expiry(0)
             if user is not None:
+                login(request, user)
+                if not remember_me:
+                    request.session.set_expiry(0)
                 return redirect('webapp:index')
 
             form.add_error(field=None, error='Nieprawidłowy login i/lub hasło.')
