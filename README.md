@@ -3,7 +3,7 @@
 ## Install
 ```sh
  $ virtualenv -p python3 env
- (env) $ source env/bin/activate
+ $ source env/bin/activate
  (env) $ pip3 install -r requirements-dev.txt
 ```
 
