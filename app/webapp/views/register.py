@@ -1,6 +1,5 @@
 from django.views               import View
 from django.shortcuts           import render, redirect
-from django.contrib.auth        import authenticate
 from django.contrib.auth.models import User
 from django.core.exceptions     import ObjectDoesNotExist
 
