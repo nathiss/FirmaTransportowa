@@ -21,7 +21,7 @@ class RegisterView(View):
             User.objects.create_user(username, None, password)
             authenticate(username=username, password=password)
 
-            return render(request, 'webapp/register.html', {"form": form})
-
-        return redirect('webapp:index')
+            return redirect('webapp:index')
+            
+        return render(request, 'webapp/register.html', {"form": form})
 
