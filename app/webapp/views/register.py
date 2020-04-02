@@ -1,7 +1,7 @@
 from django.views               import View
 from django.shortcuts           import render, redirect
 from django.contrib.auth.models import User
-from django.core.exceptions     import ObjectDoesNotExist
+from django.contrib.auth        import authenticate
 
 from ..forms import RegisterForm
 
@@ -17,27 +17,11 @@ class RegisterView(View):
         if form.is_valid():
             username = form.cleaned_data['login']
             password = form.cleaned_data['passwd']
-            repeatPassword = form.cleaned_data['repeatPasswd']
 
-            if (password != repeatPassword):
-                form.add_error(field=None, error='Hasła nie zgadzają się.')
-                return render(request, 'webapp/register.html', {"form": form})
-
-            user = self.search(username)
-            if user is True:
-                form.add_error(field=None, error='Użytkownik już istnieje.')
-                return render(request, 'webapp/register.html', {"form": form})
-
-            user = User.objects.create_user(username, None, password)
+            User.objects.create_user(username, None, password)
+            authenticate(username=username, password=password)
 
             return render(request, 'webapp/register.html', {"form": form})
 
-        form.add_error(field=None, error='Formularz jest nieprawidłowy.')
-        return render(request, 'webapp/register.html', {"form": form})
+        return redirect('webapp:index')
 
-    def search(self, userstring):
-        try:
-            User.objects.get(username=userstring)
-            return True
-        except ObjectDoesNotExist:
-            return False
