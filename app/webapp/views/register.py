@@ -1,7 +1,7 @@
 from django.views               import View
 from django.shortcuts           import render, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth        import authenticate
+from django.contrib.auth        import login
 
 from ..forms    import RegisterForm
 from ..forms    import ClientForm
@@ -31,8 +31,8 @@ class RegisterView(View):
             user = User.objects.create_user(username, email, password)
             Client.create(first_name=first_name, last_name=last_name, email=email, phone_number=phone_number, pesel=pesel, user=user)
 
-            authenticate(username=username, password=password)
+            login(user, request)
 
             return redirect('webapp:index')
-            
+
         return render(request, 'webapp/register.html', {"form": form, "client_form": client_form})
