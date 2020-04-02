@@ -17,8 +17,9 @@ class RegisterView(View):
         if form.is_valid():
             username = form.cleaned_data['login']
             password = form.cleaned_data['passwd']
+            email = form.cleaned_data['email']
 
-            User.objects.create_user(username, None, password)
+            User.objects.create_user(username, email, password)
             authenticate(username=username, password=password)
 
             return redirect('webapp:index')

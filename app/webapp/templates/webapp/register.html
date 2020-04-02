@@ -29,6 +29,14 @@
         </div>
 
         <div class="form-group">
+          <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+          {% for error in form.email.errors %}
+            {% include 'webapp/elements/alerts/error.html' with message=error only %}
+          {% endfor %}
+          {{ form.email|add_class:"form-control" }}
+        </div>
+
+        <div class="form-group">
           <label for="{{ form.passwd.id_for_label }}">{{ form.passwd.label }}</label>
           {% for error in form.passwd.errors %}
             {% include 'webapp/elements/alerts/error.html' with message=error only %}
@@ -42,7 +50,7 @@
               {% include 'webapp/elements/alerts/error.html' with message=error only %}
             {% endfor %}
             {{ form.repeatPasswd|add_class:"form-control" }}
-          </div>
+        </div>
 
         <button type="submit" class="btn btn-primary">Zarejestruj się</button>
       </form>
