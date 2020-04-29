@@ -1,7 +1,5 @@
-from django                     import forms
-from django.contrib.auth.models import User
-from django.core.exceptions     import ObjectDoesNotExist
-from django.db.models           import Q
+from django                 import forms
+from django.core.validators import RegexValidator
 
 class RegisterForm(forms.Form):
     login = forms.CharField(label='Login użytkownika', max_length=100)
@@ -9,26 +7,18 @@ class RegisterForm(forms.Form):
     repeatPasswd = forms.CharField(label='Powtórz hasło', max_length=100, widget=forms.PasswordInput)
     email = forms.EmailField(label='Email', max_length=100)
 
+    first_name = forms.CharField(label='Imię', max_length=100)
+    last_name = forms.CharField(label="Nazwisko", max_length=100)
+    phone_number = forms.CharField(label='Numer telefonu', max_length=9, validators=[RegexValidator(regex=r'^[0-9]{9}$', message='Podany numer telefonu jest nieprawidłowy')])
+    pesel = forms.CharField(label='PESEL', max_length=11, validators=[RegexValidator(regex=r'^[0-9]{11}$', message='Podany pesel jest nieprawidłowy')])
+
+
     def clean(self):
         cleaned_data = super().clean()
-        username = cleaned_data.get("login")
         password = cleaned_data.get("passwd")
         repeat_password = cleaned_data.get("repeatPasswd")
-        email = cleaned_data.get("email")
 
         if password != repeat_password:
             raise forms.ValidationError("Podane hasła różnią się")
 
-        if len(password) < 8:
-            raise forms.ValidationError("Hasło musi mieć co najmniej 8 znaków")
-
-        user = self.search(username, email)
-        if user is True:
-            raise forms.ValidationError("Użytkownik o podanym loginie lub emailu już istnieje")
-
-    def search(self, login, email):
-        try:
-            User.objects.get(Q(username = login) | Q(email = email))
-            return True
-        except ObjectDoesNotExist:
-            return False
+        return cleaned_data

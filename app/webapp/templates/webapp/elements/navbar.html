@@ -31,6 +31,16 @@
           <a class="nav-link" href="{% url 'webapp:register' %}">Zarejestruj się</a>
         </li>
       {% else %}
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" id="mainNavbarDropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            Witaj {{ request.user.client.first_name }}
+          </a>
+          <div class="dropdown-menu" aria-labelby="mainNavbarDropdown">
+            <a class="dropdown-item" href="{% url 'webapp:change_password' %}">Zmień hasło</a>
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Action</a>
+          </div>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'webapp:logout' %}">Wyloguj się</a>
         </li>
