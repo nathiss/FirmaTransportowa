@@ -3,7 +3,8 @@ from django import forms
 class ChangePasswordForm(forms.Form):
     old_password = forms.CharField(label='Stare Hasło', max_length=100, widget=forms.PasswordInput)
     new_password = forms.CharField(label='Nowe hasło', max_length=100, widget=forms.PasswordInput)
-    new_password_repeat = forms.CharField(label='Powtórz nowe hasło', max_length=100, widget=forms.PasswordInput)
+    new_password_repeat = forms.CharField(
+        label='Powtórz nowe hasło', max_length=100, widget=forms.PasswordInput)
 
     def __init__(self, user, *args, **kwargs):
         super().__init__(*args, **kwargs)
