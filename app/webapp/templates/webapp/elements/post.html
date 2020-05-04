@@ -1,10 +1,19 @@
 <article class="post">
   <header class="d-flex flex-row justify-content-between align-items-center">
     <h2>{{ post.title }}</h2>
-    <time>{{ post.datetime }}</time>
+    <div class="d-flex flex-row justify-content-between align-items-center">
+      <time>{{ post.datetime }}</time>
+
+      {% if request.user.is_staff %}
+        <a href="{% url 'webapp:edit_post' post.id %}" type="button" class="btn btn-info btn-sm edit-post-btn">Edytuj</a>
+        <a href="{% url 'webapp:delete_post' post.id %}" type="button" class="btn btn-danger btn-sm delete-post-btn">Usuń</a>
+      {% endif %}
+
+
+    </div>
   </header>
   <main>
-    <p>
+    <sp>
       {{ post.content|safe }}
     </p>
   </main>

@@ -84,3 +84,21 @@ body > footer .copyright p {
         width: calc(100% - 2em);
     }
 }
+
+.edit-post-btn {
+    margin: 0 .5em;
+}
+
+.edit-post-btn,
+.delete-post-btn,
+.edit-post-btn:hover,
+.delete-post-btn:hover,
+.edit-post-btn:active,
+.delete-post-btn:active,
+.edit-post-btn:focus,
+.delete-post-btn:focus,
+.edit-post-btn:visited,
+.delete-post-btn:visited {
+    text-decoration: none;
+    color: #eee !important;
+}

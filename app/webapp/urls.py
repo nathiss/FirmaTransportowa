@@ -14,4 +14,6 @@ urlpatterns = [
     path('user/change_password', views.ChangePasswordView.as_view(), name='change_password'),
 
     path('staff/create_post', views.CreatePostView.as_view(), name='create_post'),
+    path('staff/delete_post/<uuid:post_id>', views.DeletePostView.as_view(), name='delete_post'),
+    path('staff/edit_post/<uuid:post_id>', views.EditPostView.as_view(), name='edit_post'),
 ]
