@@ -38,6 +38,7 @@
           <div class="dropdown-menu" aria-labelby="mainNavbarDropdown">
 
             <a class="dropdown-item" href="{% url 'webapp:change_password' %}">Zmień hasło</a>
+            <a class="dropdown-item" href="{% url 'webapp:create_ticket' %}">Kup bilet</a>
 
             {% if request.user.is_staff %}
               <a class="dropdown-item" href="{% url 'webapp:create_post' %}">Dodaj artykuł</a>

@@ -12,4 +12,4 @@ class Ticket(models.Model):
     connection = models.ForeignKey(Connection, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'ticket-{self.id}'
+        return f'ticket-{self.id} ({self.connection})'

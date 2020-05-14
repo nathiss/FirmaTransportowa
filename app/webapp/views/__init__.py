@@ -10,6 +10,7 @@ from .post import DeletePostView
 from .post import EditPostView
 from .create_place import CreatePlaceView
 from .create_connection import CreateConnectionView
+from .ticket import CreateTicketView
 
 
 def about_us(request, *args, **kwargs):
