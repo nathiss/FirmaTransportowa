@@ -20,11 +20,11 @@ class CreatePlaceView(View):
 
         form = PlaceForm(request.POST)
         if form.is_valid():
-            p = Place()
-            p.city = form.cleaned_data['city']
-            p.street = form.cleaned_data['street']
-            p.stop_name = form.cleaned_data['stop_name']
-            p.save()
+            place = Place()
+            place.city = form.cleaned_data['city']
+            place.street = form.cleaned_data['street']
+            place.stop_name = form.cleaned_data['stop_name']
+            place.save()
             return redirect('webapp:index')
 
         return render(request, 'webapp/create_place.html', {'form': form})
