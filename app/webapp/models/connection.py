@@ -15,4 +15,4 @@ class Connection(models.Model):
     date_time = models.DateTimeField()
 
     def __str__(self):
-        return f'[{self.date_time}] {self.starting_place} - {self.laststop_place}'
+        return f'{self.starting_place} -> {self.laststop_place}'

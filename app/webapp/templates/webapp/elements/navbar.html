@@ -42,6 +42,7 @@
             {% if request.user.is_staff %}
               <a class="dropdown-item" href="{% url 'webapp:create_post' %}">Dodaj artykuł</a>
               <a class="dropdown-item" href="{% url 'webapp:create_place' %}">Dodaj przystanek</a>
+              <a class="dropdown-item" href="{% url 'webapp:create_connection' %}">Dodaj Połączenie</a>
             {% endif %}
 
           </div>

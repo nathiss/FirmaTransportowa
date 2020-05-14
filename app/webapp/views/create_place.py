@@ -25,6 +25,6 @@ class CreatePlaceView(View):
             place.street = form.cleaned_data['street']
             place.stop_name = form.cleaned_data['stop_name']
             place.save()
-            return redirect('webapp:index')
+            return redirect('webapp:create_place')
 
         return render(request, 'webapp/create_place.html', {'form': form})

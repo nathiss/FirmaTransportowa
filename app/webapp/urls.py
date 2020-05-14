@@ -18,6 +18,7 @@ urlpatterns = [
     path('staff/edit_post/<uuid:post_id>', views.EditPostView.as_view(), name='edit_post'),
 
     path('staff/create_place', views.CreatePlaceView.as_view(), name='create_place'),
+    path('staff/create_connection', views.CreateConnectionView.as_view(), name='create_connection'),
 
     path('about_us', views.about_us, name='about_us'),
     path('contact', views.contact, name='contact'),
