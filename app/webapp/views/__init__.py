@@ -6,3 +6,4 @@ from .change_password import ChangePasswordView
 from .post import CreatePostView
 from .post import DeletePostView
 from .post import EditPostView
+from .create_place import CreatePlaceView
