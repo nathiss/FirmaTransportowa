@@ -11,6 +11,7 @@ from .post import EditPostView
 from .create_place import CreatePlaceView
 from .create_connection import CreateConnectionView
 from .ticket import CreateTicketView
+from .my_tickets import TicketsView
 
 
 def about_us(request, *args, **kwargs):

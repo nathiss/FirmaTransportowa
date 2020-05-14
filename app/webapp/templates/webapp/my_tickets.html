@@ -1,0 +1,39 @@
+{% extends 'webapp/base.html' %}
+
+{% block body %}
+
+<div class="container h-100">
+  <div class="row h-100 d-flex align-items-center">
+    <div class="col-md-12 col-lg-6 offset-lg-3">
+      <h1 class="text-center">Moje bilety</h1>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Przystanek początkowy</th>
+            <th scope="col">Przystanek końcowy</th>
+            <th scope="col">Data i godzina</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ticket in tickets %}
+            <tr>
+              <th scope="row">{{ forloop.counter }}</th>
+              <th>{{ ticket.starting_place }}</th>
+              <th>{{ ticket.laststop_place }}</th>
+              <th>{{ ticket.date_time }}</th>
+            </tr>
+            {% empty %}
+              <th colspan="4">
+                <i class="text-center d-block">Nie masz żadnych biletów</i>
+              </th>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
