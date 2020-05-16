@@ -11,7 +11,8 @@ class CreateTicketView(View):
 
         form = TicketForm()
         connections = Connection.objects.all()
-        return render(request, 'webapp/create_ticket.html', {'form': form, 'connections': connections})
+        return render(request, 'webapp/create_ticket.html',
+                      {'form': form, 'connections': connections})
 
     def post(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
@@ -20,7 +21,8 @@ class CreateTicketView(View):
         form = TicketForm(request.POST)
         if not form.is_valid():
             connections = Connection.objects.all()
-            return render(request, 'webapp/create_ticket.html', {'form': form, 'connections': connections})
+            return render(request, 'webapp/create_ticket.html',
+                          {'form': form, 'connections': connections})
 
         ticket = Ticket()
         ticket.owner = get_object_or_404(Client, user=request.user)
@@ -28,4 +30,3 @@ class CreateTicketView(View):
         ticket.save()
 
         return redirect('webapp:create_ticket')
-
