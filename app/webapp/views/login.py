@@ -21,7 +21,7 @@ class LoginView(View):
             if user is not None:
                 login(request, user)
                 if not remember_me:
-                    request.session.set_expiry(0)
+                    request.session.set_expiry(3600)
                 return redirect('webapp:index')
 
             form.add_error(field=None, error='Nieprawidłowy login i/lub hasło.')
