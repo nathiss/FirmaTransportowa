@@ -8,3 +8,4 @@ __pycache__/
 *.swp
 env/
 db.sqlite3
+app/app/static
